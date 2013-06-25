@@ -10,8 +10,8 @@
 
 App.ApplicationController = Em.Controller.extend
   heading: (->
-    headings = { "/about": "About", "/subjects": "Subjects" }
+    headings = { "about": "About", "subjects": "Subjects" }
     url = @get("target.url")
 
-    headings[url]
+    headings[url.split("/")[1]]
   ).property("target.url")
