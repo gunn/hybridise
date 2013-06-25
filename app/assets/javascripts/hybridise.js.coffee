@@ -8,6 +8,9 @@
 #= require ./router
 #= require_self
 
+Ember.TextField.reopen
+  attributeBindings: ['type', 'value', 'size', 'pattern', 'name', 'min', 'max']
+
 App.ApplicationController = Em.Controller.extend
   heading: (->
     headings = { "about": "About", "subjects": "Subjects" }
@@ -15,6 +18,16 @@ App.ApplicationController = Em.Controller.extend
 
     headings[url.split("/")[1]]
   ).property("target.url")
+
+App.SubjectsController = Em.ArrayController.extend
+  colour: "#666666"
+  size: 450
+  letterStyle: (->
+    "color: #{@colour}; font-size: #{@size}px"
+  ).property("colour", "size")
+
+App.SubjectsView = Em.View.extend
+  letterStyleBinding: "controller.letterStyle"
 
 App.Subject = Em.Object.extend
   id: null

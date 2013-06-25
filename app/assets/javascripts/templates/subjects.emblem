@@ -1,10 +1,19 @@
 .pure-u-1-3
   h2.content-subhead Subjects
 
-  ul
+  .buttons
     each subject in model
-      li= linkTo "subject" subject
+      = linkTo "subject" subject class="pure-button letter-button" activeClass="pure-button-primary"
         = subject.letter
+
+  br
+  .pure-form.pure-form-stacked
+    .pure-control-group
+      label for="colour"= colour
+      = input id=colour type=color value=colour
+    .pure-control-group
+      label for="size"= size
+      = input id=size type=range max=900 value=size
 
 .pure-u-2-3
   = outlet

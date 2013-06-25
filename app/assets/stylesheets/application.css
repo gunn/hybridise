@@ -70,3 +70,9 @@
   color: #666;
   text-align: center;
 }
+
+.letter-button {
+  width: 15px;
+  margin: 4px;
+  padding: 8px 12px;
+}

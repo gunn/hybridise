@@ -1,1 +1,2 @@
-.huge= model.letter
+.huge style=view.letterStyle
+  = model.letter
