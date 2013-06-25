@@ -11,6 +11,7 @@
   #main.pure-u
     .header.pure-u-1
       h1.pure-u-1 {{ heading }}
+      h2.pure-u   {{ extraInfo }}
 
     .content.pure-form
       = outlet
