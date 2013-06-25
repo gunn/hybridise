@@ -10,7 +10,7 @@
 
   #main.pure-u
     .header.pure-u-1
-      h1.pure-u-1 Heading!
+      h1.pure-u-1 {{ heading }}
 
     .content.pure-form
       = outlet
