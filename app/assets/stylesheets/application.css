@@ -3,3 +3,23 @@
  *= require_self
  *= require_tree .
  */
+
+#main {
+  width: 100%;
+}
+
+.header {
+  min-height: 80px;
+  margin: 0;
+  color: #333;
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.content {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 50px;
+}

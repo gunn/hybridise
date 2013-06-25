@@ -1,6 +1,12 @@
-h1 Heading!
+.pure-g-r
+  #main.pure-u
+    .header.pure-u-1
+      h1.pure-u-1 Heading!
 
-.tab= linkTo "about" | About
-.tab= linkTo "subjects" | Subjects
+    .content
+      .pure-menu.pure-menu-open.pure-menu-horizontal
+        ul
+          li= linkTo "about" | About
+          li= linkTo "subjects" | subjects
 
-= outlet
+      = outlet
