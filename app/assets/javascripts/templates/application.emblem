@@ -1,12 +1,16 @@
 .pure-g-r
+  #menu.pure-u
+    .pure-menu.pure-menu-open
+        = linkTo "subjects" class="pure-menu-heading" | Home
+        ul
+          = linkTo "about" tagName="li" activeClass="pure-menu-selected" href=false
+            = linkTo "about" | About
+          = linkTo "subjects" tagName="li" activeClass="pure-menu-selected" href=false
+            = linkTo "subjects" | Subjects
+
   #main.pure-u
     .header.pure-u-1
       h1.pure-u-1 Heading!
 
     .content
-      .pure-menu.pure-menu-open.pure-menu-horizontal
-        ul
-          li= linkTo "about" | About
-          li= linkTo "subjects" | subjects
-
       = outlet
