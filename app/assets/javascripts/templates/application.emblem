@@ -1,6 +1,6 @@
 .pure-g-r
   #menu.pure-u
-    .pure-menu.pure-menu-open
+    .pure-menu.pure-menu-open.pure-menu-horizontal
         = linkTo "subjects" class="pure-menu-heading" | Home
         ul
           = linkTo "about" tagName="li" activeClass="pure-menu-selected" href=false
@@ -12,5 +12,5 @@
     .header.pure-u-1
       h1.pure-u-1 Heading!
 
-    .content
+    .content.pure-form
       = outlet
