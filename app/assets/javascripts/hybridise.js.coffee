@@ -15,3 +15,9 @@ App.ApplicationController = Em.Controller.extend
 
     headings[url.split("/")[1]]
   ).property("target.url")
+
+App.Subject = Em.Object.extend
+  id: null
+  letter: (->
+    @get "id"
+  ).property("id")

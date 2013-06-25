@@ -2,9 +2,9 @@
   h2.content-subhead Subjects
 
   ul
-    each model
-      li= linkTo subject this
-        this
+    each subject in model
+      li= linkTo "subject" subject
+        = subject.letter
 
 .pure-u-2-3
   = outlet
