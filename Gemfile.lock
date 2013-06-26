@@ -75,6 +75,7 @@ GEM
     emblem-source (0.2.9)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    excon (0.25.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.8.1)
@@ -180,6 +181,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   ember-rails
   emblem-rails
+  excon
   ffi (= 1.8.1)
   guard-jasmine
   guard-livereload

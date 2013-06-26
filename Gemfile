@@ -14,6 +14,7 @@ gem 'emblem-rails'
 
 group :development do
   gem 'guard-livereload'
+  gem 'excon'
 end
 
 group :development, :test do
