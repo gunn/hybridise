@@ -1,3 +1,4 @@
+#= require ./patches
 #= require ./store
 #= require_tree ./models
 #= require_tree ./controllers
@@ -7,9 +8,6 @@
 #= require_tree ./routes
 #= require ./router
 #= require_self
-
-Ember.TextField.reopen
-  attributeBindings: ['type', 'value', 'size', 'pattern', 'name', 'min', 'max']
 
 App.ApplicationController = Em.Controller.extend
   heading: (->
