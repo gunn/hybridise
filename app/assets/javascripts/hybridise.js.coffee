@@ -26,9 +26,3 @@ App.SubjectsController = Em.ArrayController.extend
 
 App.SubjectsView = Em.View.extend
   letterStyleBinding: "controller.letterStyle"
-
-App.Subject = Em.Object.extend
-  id: null
-  letter: (->
-    @get "id"
-  ).property("id")

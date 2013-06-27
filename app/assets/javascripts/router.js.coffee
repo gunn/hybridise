@@ -7,14 +7,10 @@ App.Router.map ->
 
 App.SubjectsRoute = Ember.Route.extend
   model: ->
-    for i in [65..90]
-      App.Subject.create
-        id: String.fromCharCode(i)
-
-App.SubjectRoute = Ember.Route.extend
-  model: (params)->
-    App.Subject.create
-      id: params.subject_id
+    if App.Subject.all().get("length") > 0
+      App.Subject.all()
+    else
+      App.Subject.find()
 
 App.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo "about"
