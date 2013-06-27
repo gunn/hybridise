@@ -1,2 +1,2 @@
-.huge style=view.letterStyle
-  = model.letter
+h1= model.title
+.text== model.text

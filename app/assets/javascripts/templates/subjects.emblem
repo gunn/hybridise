@@ -3,8 +3,8 @@
 
   .buttons
     each subject in model
-      = linkTo "subject" subject class="pure-button letter-button" activeClass="pure-button-primary"
-        = subject.letter
+      .asd= linkTo "subject" subject
+        = subject.title
 
   br
   .pure-form.pure-form-stacked
