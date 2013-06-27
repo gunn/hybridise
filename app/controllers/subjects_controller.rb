@@ -6,6 +6,6 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    respond_with Subject.find(params[:id])
+    respond_with Subject.find_by_wiki_slug(params[:id])
   end
 end
