@@ -6,8 +6,8 @@ class WikiImport
   end
 
   def self.load_page slug
-    response = connection.get
-      query: { action:'parse', prop:'text', format:'json', page: slug }
+    response = connection.get query:
+      { action:'parse', prop:'text', format:'json', page: slug }
 
     data = JSON.parse( response[:body] )
     html_text = data["parse"]["text"]["*"]
@@ -16,11 +16,11 @@ class WikiImport
   end
 
   def find_subjects
-    doc = WikiImport.load_pages "List_of_academic_disciplines"
+    doc = WikiImport.load_page "List_of_academic_disciplines"
 
     links = doc.css(".multicol td > ul > li > a")
     links = links.reject do |a|
-      ["Outline", " of ", " sociology"].any? do |word|
+      ["Outline", "outline", " of ", " sociology"].any? do |word|
         a.text.include? word
       end
     end
@@ -31,7 +31,7 @@ class WikiImport
   end
 
   def get_subject_text slug
-    doc = WikiImport.load_pages slug
+    doc = WikiImport.load_page slug
 
     p = doc.css("p:first")
     p.css("sup").remove
@@ -41,8 +41,18 @@ class WikiImport
   end
 
   def import!
-    subjects = find_subjects.each do |subject|
-      subject.text = get_subject_text( subject.wiki_slug )
+    subjects = find_subjects
+    total = subjects.size
+    Rails.logger.info "Importing #{total} subjects:\n"
+
+    subjects.each_with_index do |subject, i|
+      Rails.logger.info "(#{i} / #{total}) #{subject.title}"
+      begin
+        subject.text = get_subject_text( subject.wiki_slug )
+      rescue
+        Rails.logger.info("Error with #{subject.title}")
+      end
+
       subject.save
     end
   end
