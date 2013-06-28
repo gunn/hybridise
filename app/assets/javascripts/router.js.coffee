@@ -16,5 +16,11 @@ App.SubjectRoute = Ember.Route.extend
   model: (params)->
     App.Subject.find(params.subject_id)
 
+  setupController: (controller, model)->
+    controller.set("model", model)
+    App.Subject.find(model.get("wikiSlug")).then (model)->
+      if controller.get("model.wikiSlug") == model.get("wikiSlug")
+        controller.set("model", model)
+
 App.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo "about"
