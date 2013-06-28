@@ -19,13 +19,3 @@ App.ApplicationController = Em.Controller.extend
 
     headings[url.split("/")[1]]
   ).property("target.url")
-
-App.SubjectsController = Em.ArrayController.extend
-  colour: "#666666"
-  size: 450
-  letterStyle: (->
-    "color: #{@colour}; font-size: #{@size}px"
-  ).property("colour", "size")
-
-App.SubjectsView = Em.View.extend
-  letterStyleBinding: "controller.letterStyle"
