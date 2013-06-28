@@ -10,6 +10,9 @@
 #= require_self
 
 App.ApplicationController = Em.Controller.extend
+  init: ->
+    App.Subject.find()
+
   heading: (->
     headings = { "about": "About", "subjects": "Subjects" }
     url = @get("target.url")

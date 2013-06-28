@@ -7,10 +7,7 @@ App.Router.map ->
 
 App.SubjectsRoute = Ember.Route.extend
   model: ->
-    if App.Subject.all().get("length") > 0
-      App.Subject.all()
-    else
-      App.Subject.find()
+    App.Subject.all()
 
 App.SubjectRoute = Ember.Route.extend
   serialize: (model, params)->
