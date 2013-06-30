@@ -51,6 +51,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    childprocess (0.3.9)
+      ffi (~> 1.0, >= 1.0.11)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -94,6 +96,11 @@ GEM
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
+    guard-konacha (0.3.1)
+      activesupport (>= 2.2)
+      childprocess (>= 0.2.5)
+      guard (~> 1.1)
+      konacha (>= 2.3)
     guard-livereload (1.4.0)
       em-websocket (>= 0.5.0)
       guard (>= 1.8.0)
@@ -205,6 +212,7 @@ DEPENDENCIES
   emblem-rails
   excon
   ffi (= 1.8.1)
+  guard-konacha
   guard-livereload
   jquery-rails
   konacha

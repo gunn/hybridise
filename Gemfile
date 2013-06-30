@@ -24,5 +24,8 @@ group :development, :test do
 
   gem 'poltergeist'
   gem 'konacha'
+  gem 'guard-konacha'
   gem 'ember-konacha-rails', github: 'kristianmandrup/ember-konacha-rails'
 end
+
+gem "guard-konacha"
