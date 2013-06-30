@@ -19,3 +19,8 @@ App.ApplicationController = Em.Controller.extend
 
     headings[url.split("/")[1]]
   ).property("target.url")
+
+App.SubjectsController = Em.ArrayController.extend
+  shownSubjects: (->
+    Em.A @get("model").slice(0, 30)
+  ).property("model.@each")

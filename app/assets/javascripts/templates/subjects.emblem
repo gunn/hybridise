@@ -2,7 +2,7 @@
   h2.content-subhead Subjects
 
   .buttons
-    each subject in model
+    each subject in shownSubjects
       .asd= linkTo "subject" subject
         = subject.title
 
