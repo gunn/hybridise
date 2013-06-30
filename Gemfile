@@ -21,6 +21,6 @@ end
 
 group :development, :test do
   gem 'ffi', '1.8.1'
-  gem 'jasminerice', github: 'bradphelan/jasminerice'
-  gem 'guard-jasmine'
+  gem 'konacha'
+  gem 'ember-konacha-rails', github: 'kristianmandrup/ember-konacha-rails'
 end
