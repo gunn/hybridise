@@ -21,6 +21,8 @@ end
 
 group :development, :test do
   gem 'ffi', '1.8.1'
+
+  gem 'poltergeist'
   gem 'konacha'
   gem 'ember-konacha-rails', github: 'kristianmandrup/ember-konacha-rails'
 end
