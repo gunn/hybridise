@@ -1,6 +1,6 @@
 Hybridise::Application.routes.draw do
+  root to: "static#index"
   resources :subjects
 
-  root to: "static#index"
-
+  mount Konacha::Engine => '/konacha' if Rails.env.development?
 end
