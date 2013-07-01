@@ -21,9 +21,8 @@ window.TestUtil ||=
     App.__container__.lookup 'router:main'
 
   appendView: ->
-    Ember.run( ->
+    Ember.run ->
       view.append '#konacha'
-    )
 
 # Useful for placing local test vars
 window.Test ||= {}
@@ -37,7 +36,7 @@ window.T = Test
 # Stub out Konacha.reset()
 Konacha.reset = Ember.K
 
-beforeEach( (done) ->
+beforeEach (done)->
   # Fake XHR
   window.server = TestUtil.fakeServer()
 
@@ -48,7 +47,7 @@ beforeEach( (done) ->
   # reset all test variables!
   window.Test = {}
 
-  Ember.run( ->
+  Ember.run ->
     # Advance App readiness, which was deferred when the app
     # was created.
 
@@ -57,21 +56,16 @@ beforeEach( (done) ->
     App.advanceReadiness()
 
     # When App readiness promise resolves, setup is complete
-    App.then( ->
+    App.then ->
       done()
-    )
-  )
-)
 
-afterEach( ->
+afterEach ->
   # Reset App
-  Ember.run( ->
+  Ember.run ->
     App.reset()
-  )
 
   # reset all test variables!
   window.Test = {}
 
   # Restore XHR
   window.server.restore()
-)
