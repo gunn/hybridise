@@ -12,8 +12,6 @@ App.Router.reopen location: 'none'
 # **** Utility methods (for tests only - not for use in apps) ***
 
 window.TestUtil ||=
-  fakeServer: ->
-      sinon.fakeServer.create()
   lookupStore: ->
     App.__container__.lookup 'store:main'
 
@@ -37,9 +35,6 @@ window.T = Test
 Konacha.reset = Ember.K
 
 beforeEach (done)->
-  # Fake XHR
-  window.server = TestUtil.fakeServer()
-
   # Prevent automatic scheduling of runloops. For tests, we
   # want to have complete control of runloops.
   Ember.testing = true
@@ -56,16 +51,11 @@ beforeEach (done)->
     App.advanceReadiness()
 
     # When App readiness promise resolves, setup is complete
-    App.then ->
-      done()
+    App.then -> done()
 
 afterEach ->
   # Reset App
-  Ember.run ->
-    App.reset()
+  Ember.run -> App.reset()
 
   # reset all test variables!
   window.Test = {}
-
-  # Restore XHR
-  window.server.restore()
