@@ -1,3 +1,4 @@
+#= require_self
 #= require ./patches
 #= require ./store
 #= require_tree ./models
@@ -7,7 +8,8 @@
 #= require_tree ./templates
 #= require_tree ./routes
 #= require ./router
-#= require_self
+
+window.App = Ember.Application.create()
 
 App.ApplicationController = Em.Controller.extend
   init: ->

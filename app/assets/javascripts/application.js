@@ -5,7 +5,4 @@
 //= require ember-console-utils
 //= require_self
 //= require hybridise
-
-App = Ember.Application.create()
-
 //= require_tree .
