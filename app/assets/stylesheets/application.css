@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+span.count {
+  padding-left: 10px;
+}
+
 .pure-menu.pure-menu-open {
   border: none;
 }
