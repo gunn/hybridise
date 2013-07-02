@@ -23,6 +23,12 @@ App.ApplicationController = Em.Controller.extend
   ).property("target.url")
 
 App.SubjectsController = Em.ArrayController.extend
+  filterTerm: ""
   shownSubjects: (->
-    Em.A @get("model").slice(0, 30)
-  ).property("model.@each")
+    filtered = []
+    term = @get("filterTerm").toLowerCase()
+    for subject in @get("model").toArray()
+      filtered.push(subject) if subject.get("title").toLowerCase().indexOf(term)!=-1
+      break if filtered.length >= 20
+    filtered
+  ).property("model.@each", "filterTerm")

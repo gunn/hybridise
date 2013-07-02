@@ -2,6 +2,8 @@
   h2.content-subhead Subjects
 
   .pure-menu.pure-menu-open.pure-menu-vertical
+    .pure-menu-heading
+      = input type="text" value=filterTerm placeholder="Filter"
     ul
       each subject in shownSubjects
         = linkTo "subject" subject tagName="li" activeClass="pure-menu-selected" href=false
