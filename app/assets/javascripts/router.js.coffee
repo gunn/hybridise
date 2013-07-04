@@ -7,20 +7,15 @@ App.Router.map ->
 
 App.SubjectsRoute = Ember.Route.extend
   model: ->
-    App.Subject.all()
+    App.Subject.find()
 
 App.SubjectRoute = Ember.Route.extend
   serialize: (model, params)->
-    subject_id: model.get("wikiSlug")
-
-  model: (params)->
-    App.Subject.find(params.subject_id)
+    subject_id: model.get("wiki_slug")
 
   setupController: (controller, model)->
     controller.set("model", model)
-    App.Subject.find(model.get("wikiSlug")).then (model)->
-      if controller.get("model.wikiSlug") == model.get("wikiSlug")
-        controller.set("model", model)
+    model.reload() if Em.isEmpty(model.get("text"))
 
 App.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo "about"
