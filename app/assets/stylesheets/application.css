@@ -5,6 +5,34 @@
  *= require_tree .
  */
 
+body {
+  background: url(/red_bokeh.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  /*font-family: Optima;*/
+  /*font-family: Verdana;*/
+
+  font-family: Tahoma, Verdana;
+  color: #DDD;
+}
+
+p {
+  font-size: 13px;
+  color: #BBB;
+}
+
+a {
+  color: #BCD;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 #main {
   width: 100%;
 }
@@ -15,6 +43,7 @@ span.count {
 
 .pure-menu.pure-menu-open {
   border: none;
+  background-color: inherit;
 }
 /*#menu {
   width: 100%;
