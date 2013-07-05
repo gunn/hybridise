@@ -8,4 +8,6 @@ App.Subject.primaryKey    = "wiki_slug"
 App.Subject.rootKey       = "subject"
 App.Subject.collectionKey = "subjects"
 App.Subject.url           = "/subjects"
-App.Subject.adapter       = Ember.RESTAdapter.create()
+App.Subject.adapter       = Ember.RESTAdapter.create
+  # hack for ember-model bug
+  findMany: null
