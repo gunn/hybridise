@@ -1,0 +1,8 @@
+#subjects
+  #subject1.subject
+    = model.subject1.title
+
+  #and And
+
+  #subject2.subject
+    = model.subject2.title
