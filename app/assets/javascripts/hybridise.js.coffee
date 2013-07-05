@@ -28,6 +28,6 @@ App.SubjectsController = Em.ArrayController.extend
     term = @get("filterTerm").toLowerCase()
     for subject in @get("model").toArray()
       filtered.push(subject) if subject.get("title").toLowerCase().indexOf(term)!=-1
-      break if filtered.length >= 20
+      break if filtered.length >= 35
     filtered
   ).property("model.@each", "filterTerm")
