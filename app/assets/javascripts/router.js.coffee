@@ -11,7 +11,7 @@ App.SubjectsRoute = Ember.Route.extend
 
 App.SubjectRoute = Ember.Route.extend
   serialize: (model, params)->
-    subject_id: model.get("wiki_slug")
+    subject_slug: model.get("wiki_slug")
 
   setupController: (controller, model)->
     controller.set("model", model)
