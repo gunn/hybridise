@@ -32,6 +32,18 @@ a:hover {
   text-decoration: underline;
 }
 
+#and {
+  padding: 0 35px;
+  color: #AAA;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.subject {
+  font-size: 180%;
+  display: inline-block;
+}
+
 
 #main {
   width: 100%;
