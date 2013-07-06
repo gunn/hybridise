@@ -40,8 +40,9 @@ a:hover {
 }
 
 .subject {
-  font-size: 180%;
+  font-size: 110%;
   display: inline-block;
+  width: 300px;
 }
 
 

@@ -1,8 +1,11 @@
 #subjects
   #subject1.subject
     = model.subject1.title
+    = view Ember.Select selectionBinding="model.subject1" contentBinding=allSubjects optionLabelPath="content.title"
+    /= slider-select selectionBinding="model.subject1" content=allSubjects
 
   #and And
 
   #subject2.subject
     = model.subject2.title
+    = view Ember.Select selectionBinding="model.subject2" contentBinding=allSubjects optionLabelPath="content.title"

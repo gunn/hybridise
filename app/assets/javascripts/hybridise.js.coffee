@@ -31,3 +31,11 @@ App.SubjectsController = Em.ArrayController.extend
       break if filtered.length >= 35
     filtered
   ).property("model.@each", "filterTerm")
+
+App.HybridController = Em.Controller.extend
+  init: ->
+    @set "allSubjects", App.Subject.find()
+
+  navigate: (->
+    @transitionToRoute "hybrid"
+  ).observes "model.subject1", "model.subject2"

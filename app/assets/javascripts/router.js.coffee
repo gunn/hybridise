@@ -2,7 +2,7 @@ App.Router.map ->
   @resource "about"
   @resource "subjects", ->
     @resource "subject", path: ":subject_slug"
-  @resource "hybrid", path: ":slug1/and/:slug2"#, ->
+  @resource "hybrid", path: ":subject1_slug/and/:subject2_slug"#, ->
   #   @resource "suggestion", path: ":id"
 
 App.SubjectsRoute = Ember.Route.extend
@@ -21,6 +21,10 @@ App.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo "about"
 
 App.HybridRoute = Ember.Route.extend
+  serialize: (model, params)->
+    subject1_slug: model.subject1.get("wiki_slug")
+    subject2_slug: model.subject2.get("wiki_slug")
+
   model: (params)->
-    subject1: App.Subject.findById(params.slug1)
-    subject2: App.Subject.findById(params.slug2)
+    subject1: App.Subject.findById(params.subject1_slug)
+    subject2: App.Subject.findById(params.subject2_slug)
