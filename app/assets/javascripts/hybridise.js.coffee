@@ -37,5 +37,8 @@ App.HybridController = Em.Controller.extend
     @set "allSubjects", App.Subject.find()
 
   navigate: (->
+    @get("model.subject1").reload() unless @get("model.subject1.text")
+    @get("model.subject2").reload() unless @get("model.subject2.text")
+
     @transitionToRoute "hybrid"
-  ).observes "model.subject1", "model.subject2"
+  ).observes "model.subject1.text", "model.subject2.text"
