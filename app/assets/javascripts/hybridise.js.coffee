@@ -44,8 +44,9 @@ App.HybridController = Em.Controller.extend
   ).observes "model.subject1.text", "model.subject2.text"
 
 App.SliderSelectComponent = Ember.Component.extend
+  filterText: ""
   subjectList: (->
-    term = "phys"
+    term = @get("filterText").toLowerCase()
     @get("content").filter (subject)->
       subject.get("title").toLowerCase().indexOf(term)!=-1
-  ).property("content.@each")
+  ).property("content.@each", "filterText")
