@@ -1,0 +1,2 @@
+h3= selected.title
+= view Ember.Select selectionBinding=selectionBinding contentBinding=content optionLabelPath="content.title" optionValuePath="content.wiki_slug"
