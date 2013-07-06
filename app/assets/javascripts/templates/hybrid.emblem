@@ -7,6 +7,6 @@
   #and And
 
   #subject2.subject
-    = view Ember.Select selectionBinding="model.subject2" contentBinding="allSubjects" optionLabelPath="content.title"
+    = slider-select selectionBinding="model.subject1" contentBinding="allSubjects"
     p
       == model.subject2.text

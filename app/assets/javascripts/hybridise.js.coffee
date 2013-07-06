@@ -42,3 +42,10 @@ App.HybridController = Em.Controller.extend
 
     @transitionToRoute "hybrid"
   ).observes "model.subject1.text", "model.subject2.text"
+
+App.SliderSelectComponent = Ember.Component.extend
+  subjectList: (->
+    term = "phys"
+    @get("content").filter (subject)->
+      subject.get("title").toLowerCase().indexOf(term)!=-1
+  ).property("content.@each")
