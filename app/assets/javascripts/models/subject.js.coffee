@@ -2,6 +2,7 @@ App.Subject = Em.Model.extend
   title: Em.attr()
   slug: Em.attr()
   wiki_slug: Em.attr()
+  complete: Em.attr()
   text: Em.attr()
 
 App.Subject.primaryKey    = "wiki_slug"

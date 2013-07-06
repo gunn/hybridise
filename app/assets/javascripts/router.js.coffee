@@ -15,7 +15,7 @@ App.SubjectRoute = Ember.Route.extend
 
   setupController: (controller, model)->
     controller.set("model", model)
-    model.reload() if Em.isEmpty(model.get("text"))
+    model.reload() unless model.get("complete")
 
 App.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo "about"
