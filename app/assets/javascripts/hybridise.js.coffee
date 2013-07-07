@@ -47,6 +47,10 @@ App.SliderSelectComponent = Ember.Component.extend
   filterText: ""
   subjectList: (->
     term = @get("filterText").toLowerCase()
-    @get("content").filter (subject)->
+    matches = @get("content").filter (subject)->
       subject.get("title").toLowerCase().indexOf(term)!=-1
+
+    matches.unshift @get("selection")
+
+    matches.slice 0, 20
   ).property("content.@each", "filterText")
