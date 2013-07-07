@@ -3,6 +3,9 @@
  *= require_tree .
  */
 
+@import "bootstrap";
+
+
 body {
   background: url(/red_bokeh.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
