@@ -5,6 +5,15 @@ App.Subject = Em.Model.extend
   complete: Em.attr()
   text: Em.attr()
 
+  reload: ->
+    unless @get("isLoading") || @get("complete")
+      @set "isLoaded", false
+      @_super()
+
+  load: (id, hash)->
+    if !@get("complete") || hash.complete
+      @_super(id, hash)
+
 App.Subject.primaryKey    = "wiki_slug"
 App.Subject.rootKey       = "subject"
 App.Subject.collectionKey = "subjects"

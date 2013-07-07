@@ -26,5 +26,5 @@ App.HybridRoute = Ember.Route.extend
     subject2_slug: model.subject2.get("wiki_slug")
 
   model: (params)->
-    subject1: App.Subject.findById(params.subject1_slug)
-    subject2: App.Subject.findById(params.subject2_slug)
+    subject1: App.Subject.find(params.subject1_slug)
+    subject2: App.Subject.find(params.subject2_slug)
