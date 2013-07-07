@@ -7,6 +7,6 @@
   #and And
 
   #subject2.subject
-    = slider-select selectionBinding="model.subject1" contentBinding="allSubjects"
+    = slider-select selectionBinding="model.subject2" contentBinding="allSubjects"
     p
       == model.subject2.text
