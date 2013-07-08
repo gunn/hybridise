@@ -3,6 +3,20 @@
  *= require_tree .
  */
 
+// 15 column grid
+// -------------------------
+$gridColumns:             15;
+$gridColumnWidth:         48px;
+$gridGutterWidth:         16px;
+
+$gridColumnWidthLarge:     55px;
+$gridGutterWidthLarge:     24px;
+
+$gridColumnWidthTablet:      33px;
+$gridGutterWidthTablet:      16px;
+
+
+
 @import "bootstrap";
 @import "bootstrap-responsive";
 
