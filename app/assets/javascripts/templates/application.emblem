@@ -1,16 +1,12 @@
-.pure-g-r
-  #menu.pure-u
-    .pure-menu.pure-menu-open.pure-menu-horizontal
-        = linkTo "subjects" class="pure-menu-heading" | Home
-        ul
-          = linkTo "about" tagName="li" activeClass="pure-menu-selected" href=false
-            = linkTo "about" | About
-          = linkTo "subjects" tagName="li" activeClass="pure-menu-selected" href=false
-            = linkTo "subjects" | Subjects
+.container
+  .navbar.navbar-inverse
+    .navbar-inner
+      = linkTo "subjects" class="brand" | Home
+      ul.nav
+        = linkTo "about" tagName="li" href=false
+          = linkTo "about" | About
+        = linkTo "subjects" tagName="li" href=false
+          = linkTo "subjects" | Subjects
 
-  #main.pure-u
-    /.header.pure-u-1
-      h1.pure-u-1 {{ heading }}
-
-    .content.pure-form
-      = outlet
+  h1 {{ heading }}
+  = outlet
