@@ -1,12 +1,12 @@
-#subjects
-  #subject1.subject
+#subjects.row
+  #subject1.span5.subject
     = slider-select selectionBinding="model.subject1" contentBinding="allSubjects"
     p
       == model.subject1.text
 
-  #and And
+  #and.span2 And
 
-  #subject2.subject
+  #subject2.span5.subject
     = slider-select selectionBinding="model.subject2" contentBinding="allSubjects"
     p
       == model.subject2.text

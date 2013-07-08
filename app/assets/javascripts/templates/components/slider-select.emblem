@@ -1,2 +1,3 @@
 = input value=filterText
+br
 = view Ember.Select selectionBinding=selection contentBinding=subjectList optionLabelPath="content.title"
