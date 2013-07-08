@@ -1,3 +1,13 @@
 .header
-  h2= selection.title
-  = view Ember.Select selectionBinding=selection contentBinding=subjectList optionLabelPath="content.title"
+  a{action "setSubject" prevSubject}
+    i class="icon-chevron-up icon-white"
+
+  h1= selection.title
+
+  a{action "setSubject" nextSubject}
+    i class="icon-chevron-down icon-white"
+
+  br
+  br
+  /.select
+    = view Ember.Select selectionBinding=selection contentBinding=subjectList optionLabelPath="content.title"

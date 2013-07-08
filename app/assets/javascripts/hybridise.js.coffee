@@ -54,3 +54,27 @@ App.SliderSelectComponent = Ember.Component.extend
 
     matches.slice 0, 20
   ).property("content.@each", "filterText")
+
+  setSubject: (subject)->
+    console.log subject.get("title")
+    this.set("selection", subject)
+
+  prevSubject: (->
+    subject = @get("selection")
+    content = @get("content")
+
+    index = content.indexOf(subject)-1
+    index = content.length-1 if index < 0
+
+    content.objectAt(index)
+  ).property("content.@each", "selection")
+
+  nextSubject: (->
+    subject = @get("selection")
+    content = @get("content")
+
+    index = content.indexOf(subject)+1
+    index = 0 if index >= content.length
+
+    content.objectAt(index)
+  ).property("content.@each", "selection")
