@@ -56,7 +56,6 @@ App.SliderSelectComponent = Ember.Component.extend
   ).property("content.@each", "filterText")
 
   setSubject: (subject)->
-    console.log subject.get("title")
     this.set("selection", subject)
 
   prevSubject: (->
