@@ -58,22 +58,20 @@ App.SliderSelectComponent = Ember.Component.extend
   setSubject: (subject)->
     this.set("selection", subject)
 
-  prevSubject: (->
+  relativeSubject: (offset)->
     subject = @get("selection")
     content = @get("content")
 
-    index = content.indexOf(subject)-1
-    index = content.length-1 if index < 0
+    index = content.indexOf(subject)+offset
+    index = Math.min(content.get("length")-1, index)
+    index = Math.max(index, 0)
 
     content.objectAt(index)
+
+  prevSubject: (->
+    @relativeSubject -1
   ).property("content.@each", "selection")
 
   nextSubject: (->
-    subject = @get("selection")
-    content = @get("content")
-
-    index = content.indexOf(subject)+1
-    index = 0 if index >= content.length
-
-    content.objectAt(index)
+    @relativeSubject 1
   ).property("content.@each", "selection")
