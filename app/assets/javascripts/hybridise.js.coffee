@@ -44,6 +44,24 @@ App.HybridController = Em.Controller.extend
   ).observes "model.subject1.text", "model.subject2.text"
 
 App.SliderSelectComponent = Ember.Component.extend
+  didInsertElement: ->
+    @set("displayedSubject", @get("selection"))
+
+    @$().on "touchstart mousedown", (e)=>
+      @startY = e.pageY
+      $(window).on "mousemove", onDrag
+      $(window).on "touchstop mouseup", onStop
+
+    onDrag = (e)=>
+      d = e.pageY-@startY
+      steps = Math.round(d/50)
+      @set "displayedSubject", @relativeSubject(steps)
+
+    onStop = =>
+      $(window).off "mousemove", onDrag
+      $(window).off "touchstop mouseup", onStop
+      @setSubject @get("displayedSubject")
+
   filterText: ""
   subjectList: (->
     term = @get("filterText").toLowerCase()
@@ -56,7 +74,11 @@ App.SliderSelectComponent = Ember.Component.extend
   ).property("content.@each", "filterText")
 
   setSubject: (subject)->
-    this.set("selection", subject)
+    @set("selection", subject)
+
+  setDisplayedSubject: (->
+    @set("displayedSubject", @get("selection"))
+  ).observes("selection")
 
   relativeSubject: (offset)->
     subject = @get("selection")

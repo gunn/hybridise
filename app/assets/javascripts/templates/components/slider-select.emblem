@@ -2,7 +2,7 @@
   a{action "setSubject" prevSubject}
     i class="icon-chevron-up icon-white"
 
-  h1= selection.title
+  h1= displayedSubject.title
 
   a{action "setSubject" nextSubject}
     i class="icon-chevron-down icon-white"
