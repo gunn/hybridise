@@ -60,7 +60,9 @@ App.SliderSelectComponent = Ember.Component.extend
     onStop = =>
       $(window).off "mousemove", onDrag
       $(window).off "touchstop mouseup", onStop
-      @setSubject @get("displayedSubject")
+
+      if @get("selection") != @get("displayedSubject")
+        @setSubject @get("displayedSubject")
 
   filterText: ""
   subjectList: (->
@@ -75,10 +77,9 @@ App.SliderSelectComponent = Ember.Component.extend
 
   setSubject: (subject)->
     @set("selection", subject)
+    @set("displayedSubject", subject)
 
-  setDisplayedSubject: (->
-    @set("displayedSubject", @get("selection"))
-  ).observes("selection")
+  # displayedSubject: Ember.Binding.oneWay("selection")
 
   relativeSubject: (offset)->
     subject = @get("selection")
